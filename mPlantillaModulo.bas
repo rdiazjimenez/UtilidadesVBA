@@ -1,46 +1,52 @@
+Attribute VB_Name = "mPlantillaModulo"
+' ------------------------------------------------------
+' Name: mPlantillaModulo
+' Kind: Módulo
+' Purpose: Plantillas con estructuras de procedimientos y funciones para agilizar producción de código VBA estándar
+' Author: RicardoDiaz
+' Date: 9/09/2019
+' ------------------------------------------------------
+Option Explicit
+Option Private Module
+
 ' ----------------------------------------------------------------
-' Nombre del procedimiento: EscribirNombre
-' Objetivo: EscribirObjetivo
-' Tipo: Sub
-' Acceso: Public
-' Autor: RicardoDiaz
-' Fecha: 9/09/2019
+' Procedure Name: NombreProcedimiento
+' Purpose: Escribir propósito del procedimiento
+' Procedure Kind: Sub
+' Procedure Access: Public
+' Author: RicardoDiaz
+' Date: 9/09/2019
 ' ----------------------------------------------------------------
 Public Sub NombreProcedimiento()
 
     ' Declarar objetos
-    Dim oSt As Style
-    Dim oCell As Range
-
+    
     ' Declarar variables
-    Dim lCount As Long
-    Dim CurStyle As Style
     
     ' Iniciar control de errores
-    On Error GoTo manejarError
+    On Error GoTo ManejarError
     
+    ' Apagar todo
+    Call ApagarTodo
 
-    ' 
-    For Each CurStyle In ThisWorkbook.Styles
-        
-        lCount = lCount + 1
-        
-        'oStylesh.Cells(lCount, 1).Value = CurStyle.Name
-        'oStylesh.Cells(lCount, 2).Value = CurStyle.NameLocal
-                
-        ' Borrar estilo
-        If InStr(CurStyle, "% -") > 0 And CurStyle.BuiltIn = False Then CurStyle.Delete
-        
-    Next CurStyle
+    ' Inicializar variables generales
+
+    ' Inicializar objetos
+
+    ' Iniciarlizar otras variables
+
+    ' Inicio código
+
     
-salirSub:
+SalirProcedimiento:
+    Call PrenderTodo
     Exit Sub
 
-manejarError:
+ManejarError:
     If ManejarError(Err.Number, Err.Description, Err.Source) Then
         Stop
         Resume
     End If
-    GoTo salirSub
+    GoTo SalirProcedimiento
     
 End Sub

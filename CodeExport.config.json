@@ -1,6 +1,10 @@
 {
 	"Module Paths": {
 		"mGestionErrores": "mGestionErrores.bas",
-		"mPlantillaModulo": "mPlantillaModulo.bas"
+		"mPlantillaModulo": "mPlantillaModulo.bas",
+		"mGlobal": "mGlobal.bas",
+		"mEstilos": "mEstilos.bas",
+		"mPruebas": "mPruebas.bas",
+		"mHojas": "mHojas.bas"
 	}
 }
