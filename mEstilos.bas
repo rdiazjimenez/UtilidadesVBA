@@ -596,13 +596,17 @@ End Sub
 Private Sub DuplicarEstilo(nombreEstiloOriginal As String, nombreEstiloNuevo As String)
     
     Dim estiloOriginal As Style
+    Dim estiloNuevo As Style
     
     On Error Resume Next
     
     ' Recrear estilo con nuevo nombre
     Set estiloOriginal = ThisWorkbook.Styles(nombreEstiloOriginal)
+    Set estiloNuevo = ThisWorkbook.Styles.Add(Name:=nombreEstiloNuevo)
     
-    With ThisWorkbook.Styles.Add(Name:=nombreEstiloNuevo)
+    estiloNuevo.Interior.i
+    
+    With estiloNuevo
         .AddIndent = estiloOriginal.AddIndent
         .Borders(xlDiagonalDown).Color = estiloOriginal.Borders(xlDiagonalDown).Color
         .Borders(xlDiagonalDown).ColorIndex = estiloOriginal.Borders(xlDiagonalDown).ColorIndex
@@ -679,6 +683,7 @@ Private Sub DuplicarEstilo(nombreEstiloOriginal As String, nombreEstiloNuevo As 
     
         .FormulaHidden = estiloOriginal.FormulaHidden
         .HorizontalAlignment = estiloOriginal.HorizontalAlignment
+        
         .IncludeAlignment = estiloOriginal.IncludeAlignment
         .IncludeBorder = estiloOriginal.IncludeBorder
         .IncludeFont = estiloOriginal.IncludeFont
@@ -687,7 +692,7 @@ Private Sub DuplicarEstilo(nombreEstiloOriginal As String, nombreEstiloNuevo As 
         .IncludeProtection = estiloOriginal.IncludeProtection
         '.IndentLevel = estiloOriginal.IndentLevel
         .Interior.Color = estiloOriginal.Interior.Color
-        .Interior.ColorIndex = estiloOriginal.Interior.ColorIndex
+        '.Interior.ColorIndex = estiloOriginal.Interior.ColorIndex
         '.Interior.Gradient = estiloOriginal.Interior.Gradient
         '.Interior.InvertIfNegative = estiloOriginal.Interior.InvertIfNegative
         .Interior.Pattern = estiloOriginal.Interior.Pattern
@@ -707,6 +712,7 @@ Private Sub DuplicarEstilo(nombreEstiloOriginal As String, nombreEstiloNuevo As 
         .ShrinkToFit = estiloOriginal.ShrinkToFit
         .VerticalAlignment = estiloOriginal.VerticalAlignment
         .WrapText = estiloOriginal.WrapText
+    
     
     End With
 

@@ -107,3 +107,51 @@ Public Function EncontrarHojasPorCriterio(IncluyeExcluyeCaracteresNombre As enIn
     
 End Function
 
+
+' ----------------------------------------------------------------
+' Procedure Name: AsignarNombreLocal
+' Purpose: Asignar el nombre visible al nombre local para facilitar referencia de hojas en código VBA (requiere confiar acceso a modelo de objetos VBA en centro de confianza)
+' Procedure Kind: Sub
+' Procedure Access: Public
+' Author: RicardoDiaz
+' Date: 10/09/2019
+' ----------------------------------------------------------------
+Public Sub AsignarNombreLocal()
+
+    ' Declarar objetos
+    Dim hoja As Worksheet
+    
+    ' Declarar variables
+    
+    ' Iniciar control de errores
+    On Error GoTo ManejarError
+    
+    ' Apagar todo
+    Call ApagarTodo
+
+    ' Inicializar variables generales
+    
+    ' Inicializar objetos
+
+    ' Iniciarlizar otras variables
+
+    ' Inicio código
+    For Each hoja In ThisWorkbook.Worksheets
+        
+        ThisWorkbook.VBProject.VBComponents(hoja.CodeName).Properties("_CodeName").Value = hoja.Name
+    
+    Next hoja
+    
+    
+SalirProcedimiento:
+    Call PrenderTodo
+    Exit Sub
+
+ManejarError:
+    If ManejarError(Err.Number, Err.Description, Err.Source) Then
+        Stop
+        Resume
+    End If
+    GoTo SalirProcedimiento
+
+End Sub
